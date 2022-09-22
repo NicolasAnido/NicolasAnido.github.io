@@ -7,7 +7,7 @@ async function readTag() {
         console.log('Scan Started');
         // ndef.onreading = event => {
         //   const decoder = new TextDecoder();
-        //   for (const record of event.message.records) {
+        //   for (const   of event.message.records) {
         //     console.log("Record type:  " + record.recordType);
         //     console.log("MIME type:    " + record.mediaType);
         //     console.log("=== data ===\n" + decoder.decode(record.data));
@@ -16,6 +16,9 @@ async function readTag() {
         ndef.addEventListener("readingerror", (error) => {
             console.log("Argh! Cannot read data from the NFC tag. Try another one?", error);
           });
+          ndef.onreadingerror = (event) => {
+            console.log("Error! Cannot read data from the NFC tag. Try a different one?", event);
+          }
       
           ndef.addEventListener("reading", ({ message, serialNumber }) => {
             console.log(`> Serial Number: ${serialNumber}`);
