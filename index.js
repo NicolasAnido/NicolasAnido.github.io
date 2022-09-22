@@ -22,7 +22,7 @@ async function readTag() {
       
           ndef.addEventListener("reading", ({ message, serialNumber }) => {
             console.log(`> Serial Number: ${serialNumber}`);
-            console.log(`> Records: (${message.records})`);
+            console.log(`> Message: (${message})`);
           });
       } catch(error) {
         console.log(error);
