@@ -13,8 +13,8 @@ async function readTag() {
         //     console.log("=== data ===\n" + decoder.decode(record.data));
         //   }
         // }
-        ndef.addEventListener("readingerror", () => {
-            console.log("Argh! Cannot read data from the NFC tag. Try another one?");
+        ndef.addEventListener("readingerror", (error) => {
+            console.log("Argh! Cannot read data from the NFC tag. Try another one?", error);
           });
       
           ndef.addEventListener("reading", ({ message, serialNumber }) => {
